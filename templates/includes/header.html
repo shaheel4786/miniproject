@@ -1,0 +1,62 @@
+{% load static %}
+<div class="nav-header">
+            <div class="brand-logo">
+              
+                <a href="{% url 'index' %}">
+                   <h4 style="color: white;"><img src="{% static 'images/apt.png' %}" height="40" width="80" alt="">AVS</h4>
+                </a>
+            </div>
+        </div>
+
+ <div class="header">
+            <div class="header-content clearfix">
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+
+                <div class="header-left mt-4">
+                    <h4 style="font-size: x-large;color: darkblue; text-align: center;"><strong>Welcome</strong>&nbsp;<span>{{ user.first_name }} {{ user.last_name }}</span></h4>
+
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                {% if user.profile_pic == "" %}
+                                <img src="{% static 'images/noimage.jpg' %}" height="40" width="40" alt="">
+                                {% else %}
+                                <img src="/{{user.profile_pic}}" height="40" width="40" alt="">
+                                {% endif %}
+                            </div>
+                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-body">
+                                   
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'profile' %}"><i class="icon-user"></i> <span style="font-weight: bolder;">Profile</span></a>
+                                        </li>   <hr class="my-2">
+                                        <li>
+                                            <a href="{% url 'change_password' %}">
+                                                <i class="icon-envelope-open"></i> <span style="font-weight: bolder;">Change Password</span>
+                                            </a>
+                                        </li>
+
+                                        <hr class="my-2">
+                                     
+                                        <li><a href="{% url 'logout' %}"><i class="icon-key"></i> <span style="font-weight: bolder;">Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
